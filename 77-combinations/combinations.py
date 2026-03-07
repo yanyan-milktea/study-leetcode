@@ -8,11 +8,11 @@ class Solution:
                 res.append(path[:])
                 return
 
-            for i in range(start, n - (k - len(path)) + 2):
+            for i in range(start, n + 1):
                 path.append(i)
                 dfs(i + 1)
                 path.pop()
 
         dfs(1)
         return res
-        
+
