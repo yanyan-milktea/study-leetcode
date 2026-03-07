@@ -8,20 +8,19 @@ class Solution:
             while l >= 0 and r < len(s) and s[l] == s[r]:
                 l -= 1
                 r += 1
-
+            
             return l + 1, r - 1
 
         for i in range(len(s)):
-
             # odd
-            l1, r1 = expand(i , i)
-            # even
-            l2, r2 = expand(i, i+1)
+            l1, r1 = expand(i, i)
+            # eveb
+            l2, r2 = expand(i, i + 1)
 
             if r1 - l1 > end - start:
                 start = l1
                 end = r1
-            
+
             if r2 - l2 > end - start:
                 start = l2
                 end = r2
