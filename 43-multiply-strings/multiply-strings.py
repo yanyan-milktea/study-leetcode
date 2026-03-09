@@ -14,11 +14,10 @@ class Solution:
                 total = mul + res[i + j + 1]
 
                 res[i + j + 1] = total % 10
-                res[i + j] += total // 10
+                res[i + j] += total //10
 
         res = "".join(map(str, res)).lstrip('0')
-
         return res
 
-
+                
         
