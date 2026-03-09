@@ -20,15 +20,15 @@ class LRUCache:
         nxt = self.tail
         prev.next = node
         nxt.prev = node
-        node.prev = prev
         node.next = nxt
-    
+        node.prev = prev
+
     def remove(self, node):
         prev = node.prev
         nxt = node.next
         prev.next = nxt
         nxt.prev = prev
-    
+        
     def get(self, key: int) -> int:
         if key in self.hashmap:
             self.remove(self.hashmap[key])
@@ -41,14 +41,15 @@ class LRUCache:
             self.remove(self.hashmap[key])
         
         node = Node(key, value)
-        self.hashmap[key] = node
         self.insert(node)
+        self.hashmap[key] = node
 
         if len(self.hashmap) > self.cap:
             lru = self.head.next
             self.remove(lru)
             del self.hashmap[lru.key]
         
+
 
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
