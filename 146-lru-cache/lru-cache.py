@@ -2,9 +2,8 @@ class Node:
     def __init__(self, key, val):
         self.key = key
         self.val = val
-        self.prev = None
+        self.prev = None 
         self.next = None
-
 class LRUCache:
 
     def __init__(self, capacity: int):
@@ -20,8 +19,8 @@ class LRUCache:
         nxt = self.tail
         prev.next = node
         nxt.prev = node
-        node.next = nxt
         node.prev = prev
+        node.next = nxt
 
     def remove(self, node):
         prev = node.prev
@@ -48,6 +47,7 @@ class LRUCache:
             lru = self.head.next
             self.remove(lru)
             del self.hashmap[lru.key]
+        
         
 
 
