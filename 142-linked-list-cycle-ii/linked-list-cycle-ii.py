@@ -16,7 +16,7 @@ class Solution:
 
             if slow == fast:
                 break
-
+        
         if slow != fast:
             return None
 
