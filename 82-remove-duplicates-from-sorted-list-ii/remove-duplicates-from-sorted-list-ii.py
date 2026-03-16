@@ -13,7 +13,6 @@ class Solution:
 
         while curr:
             if curr.next and curr.val == curr.next.val:
-                # skip all duplicates
                 while curr.next and curr.val == curr.next.val:
                     curr = curr.next
                 prev.next = curr.next
@@ -21,6 +20,7 @@ class Solution:
                 prev = prev.next
 
             curr = curr.next
-
+        
         return dummy.next
+
         
