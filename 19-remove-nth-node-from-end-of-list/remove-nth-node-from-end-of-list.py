@@ -8,18 +8,16 @@ class Solution:
         slow = fast = dummy = ListNode(0)
         dummy.next = head
 
-        # fast moves forward n steps
         for i in range(n):
             fast = fast.next
 
         while fast.next:
-            # fast moves to the end
-            fast = fast.next
-            # slow moves to n - 1
             slow = slow.next
+            fast = fast.next
 
-        # remove nth node from end of list
         slow.next = slow.next.next
 
         return dummy.next
+
+        
         
