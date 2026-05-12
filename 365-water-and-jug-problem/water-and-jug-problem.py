@@ -1,9 +1,36 @@
+from collections import deque 
 class Solution:
     def canMeasureWater(self, x: int, y: int, target: int) -> bool:
         if x + y < target:
             return False
 
-        if target == 0:
-            return True
+        start = (0, 0)
+        q = collections.deque([start])
+        visited = set()
+        visited.add(start)
 
-        return target % gcd(x, y) == 0
+        while q:
+            a, b = q.popleft()
+
+            if a == target or b == target or a + b == target:
+                return True
+
+            next_step = []
+
+            next_step.append((x, b))
+            next_step.append((a, y))
+            next_step.append((0, b))
+            next_step.append((a, 0))
+
+            pour = min(a, y - b)
+            next_step.append((a - pour, b + pour))
+
+            pour = min(b, x - a)
+            next_step.append((a + pour, b - pour))
+
+            for nxt in next_step:
+                if nxt not in visited:
+                    visited.add(nxt)
+                    q.append(nxt)
+
+        return False
