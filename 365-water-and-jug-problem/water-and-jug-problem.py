@@ -6,14 +6,22 @@ class Solution:
 
         start = (0, 0)
         q = collections.deque([start])
-        visited = set()
-        visited.add(start)
+        visited = {start}
+        parent = {start: None}
 
         while q:
             a, b = q.popleft()
 
             if a == target or b == target or a + b == target:
+                path = []
+                curr = (a, b)
+                while curr:
+                    path.append(curr)
+                    curr = parent[curr]
+                print (path[::-1])
+
                 return True
+
 
             next_step = []
 
@@ -31,6 +39,7 @@ class Solution:
             for nxt in next_step:
                 if nxt not in visited:
                     visited.add(nxt)
+                    parent[nxt] = (a, b)
                     q.append(nxt)
 
         return False
