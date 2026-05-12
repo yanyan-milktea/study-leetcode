@@ -14,7 +14,7 @@ class LRUCache:
         self.tail = Node(0, 0)
         self.head.next = self.tail
         self.tail.prev = self.head
-        
+    
     def insert(self, node):
         prev = self.tail.prev
         nxt = self.tail
@@ -39,6 +39,7 @@ class LRUCache:
     def put(self, key: int, value: int) -> None:
         if key in self.hashmap:
             self.remove(self.hashmap[key])
+            del self.hashmap[key]
 
         node = Node(key, value)
         self.insert(node)
