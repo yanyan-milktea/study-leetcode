@@ -23,8 +23,7 @@ class Solution:
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
+
             res.append(level)
 
-        return res
-
-        
+        return res        
