@@ -5,13 +5,13 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+    def rightSideView(self, root: TreeNode | None) -> list[int]:
         if not root:
             return []
 
         queue = collections.deque()
         queue.append(root)
-        res = []
+        result = []
 
         while queue:
             level_size = len(queue)
@@ -22,6 +22,6 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
                 if i == level_size - 1:
-                    res.append(node.val) 
-            
-        return res
+                    result.append(node.val)
+
+        return result
