@@ -18,8 +18,9 @@ class Solution:
             visited.add(node)
             res = time
 
-            for v, w in graph[node]:
-                heapq.heappush(heap, (time + w, v))
+            for neighbor, w in graph[node]:
+                if neighbor not in visited:
+                    heapq.heappush(heap, (time + w, neighbor))
 
         return res if len(visited) == n else -1 
 
