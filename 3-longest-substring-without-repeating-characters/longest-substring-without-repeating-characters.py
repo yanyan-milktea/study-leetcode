@@ -5,11 +5,14 @@ class Solution:
         res = 0
 
         for right in range(len(s)):
-            while s[right] in seen:
+            curr = s[right]
+            while curr in seen:
                 seen.remove(s[left])
                 left += 1
-
-            seen.add(s[right])
+            
+            seen.add(curr)
             res = max(res, right - left + 1)
 
-        return res        
+        return res
+            
+        
