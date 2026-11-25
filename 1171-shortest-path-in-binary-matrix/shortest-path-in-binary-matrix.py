@@ -11,7 +11,7 @@ class Solution:
         visited = {(0, 0)} # row, col
 
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1),
-                      (1, 1), (1, -1), (-1, 1), (-1,-1)]
+                      (1, 1), (1, -1), (-1, 1), (-1, -1)]
 
         while queue:
             row, col, cells = queue.popleft()
@@ -21,8 +21,8 @@ class Solution:
                 nr = row + dr
                 nc = col + dc
                 if (0 <= nr < n and 0 <= nc < n
-                    and grid[nr][nc] == 0
-                    and (nr, nc) not in visited):
+                        and grid[nr][nc] == 0
+                        and (nr, nc) not in visited):
                     visited.add((nr, nc))
                     queue.append((nr, nc, cells + 1))
 
