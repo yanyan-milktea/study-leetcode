@@ -6,24 +6,24 @@ class Solution:
 
         if grid[0][0] == 1 or grid[n - 1][n - 1] == 1:
             return -1
+        
+        queue = deque([(0, 0, 1)]) # row, col, cells
+        visited = {(0, 0)} # row, col
 
-        queue = deque([(0, 0, 1)]) #(r, c, cells)
-        visited = {(0, 0)}
-
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0),
-                      (1, 1), (1, -1), (-1, 1), (-1, -1)]
+        directions = [(1, 0), (-1, 0), (0, 1), (0, -1),
+                      (1, 1), (1, -1), (-1, 1), (-1,-1)]
 
         while queue:
-            r, c, cells = queue.popleft()
-            if r == n - 1 and c == n - 1:
+            row, col, cells = queue.popleft()
+            if row == n - 1 and col == n - 1:
                 return cells
-
             for dr, dc in directions:
-                nr = dr + r
-                nc = dc + c
-                if (0 <= nr < n and 0 <= nc < n and grid[nr][nc] == 0 and (nr, nc) not in visited):
+                nr = row + dr
+                nc = col + dc
+                if (0 <= nr < n and 0 <= nc < n
+                    and grid[nr][nc] == 0
+                    and (nr, nc) not in visited):
                     visited.add((nr, nc))
                     queue.append((nr, nc, cells + 1))
 
         return -1
-        
