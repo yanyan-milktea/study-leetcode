@@ -1,1 +1,1 @@
-<h2>shortest-path-in-binary-matrix Notes</h2><hr>[ Time taken: 5m 40s ]
+<h2>shortest-path-in-binary-matrix Notes</h2><hr>[ Time taken: 4m 47s ]
