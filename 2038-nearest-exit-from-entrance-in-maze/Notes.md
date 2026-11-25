@@ -1,1 +1,1 @@
-<h2>nearest-exit-from-entrance-in-maze Notes</h2><hr>[ Time taken: 5m 31s ]
+<h2>nearest-exit-from-entrance-in-maze Notes</h2><hr>[ Time taken: 3m 55s ]
